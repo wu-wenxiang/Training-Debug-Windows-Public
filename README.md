@@ -3,6 +3,19 @@
 - [工具、环境和Demo](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/blob/master/doc/Debug-Environment.md)
 
 ## 内容
+- Prerequirements
+	- Assembly Language
+		- x86: [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-instructions)
+		- x64 [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-instructions)
+		- [Writing Functions with Inline Assembly](https://msdn.microsoft.com/en-us/library/5sds75we.aspx)
+	- C++
+		- [Welcome Back to C++ (Modern C++)](https://msdn.microsoft.com/en-us/library/hh279654.aspx)
+		- [C++ Language Reference](https://msdn.microsoft.com/en-us/library/3bstk3k5.aspx)
+		- [Lambda Expressions in C++](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
+		- [C++ Standard Library Reference](https://msdn.microsoft.com/en-us/library/cscc687y.aspx)
+	- Windows操作系统基础
+		- [Windows Internals Book](https://docs.microsoft.com/en-us/sysinternals/learn/windows-internals)
+		- [Windows Sysinternals](https://docs.microsoft.com/en-us/sysinternals/)
 - Native C++ Desktop Rendering Introduction & Best Practice
 	- [Overview of the Windows Graphics Architecture](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/overview-of-the-windows-graphics-architecture)
 	- [OpenGL](https://learnopengl.com/Getting-started/OpenGL) & [Unity](https://link.zhihu.com/?target=http%3A//unity3d.com/learn/tutorials/modules) Introduction
