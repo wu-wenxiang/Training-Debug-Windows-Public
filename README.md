@@ -16,6 +16,9 @@
 		- [C++ Language Reference](https://msdn.microsoft.com/en-us/library/3bstk3k5.aspx)
 		- [Lambda Expressions in C++](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
 		- [C++ Standard Library Reference](https://msdn.microsoft.com/en-us/library/cscc687y.aspx)
+	- Python
+		- [Download](https://www.python.org/downloads/)
+		- [Installation](https://github.com/wu-wenxiang/Training-Python-Public/blob/master/doc/Installation-Python.md)
 	- Windows操作系统基础
 		- [Windows Internals Book](https://docs.microsoft.com/en-us/sysinternals/learn/windows-internals)
 		- [Windows Sysinternals](https://docs.microsoft.com/en-us/sysinternals/): [Forums Support](https://social.technet.microsoft.com/Forums/en-US/home?category=sysinternals&amp;filter=alltypes&amp;sort=lastpostdesc), [一句话介绍](http://blog.wuwenxiang.net/Windows-Sysinternals), [使用文档](https://docs.microsoft.com/en-us/sysinternals/learn/troubleshooting-book)
