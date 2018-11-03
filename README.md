@@ -18,7 +18,10 @@
 		- [Windows Sysinternals](https://docs.microsoft.com/en-us/sysinternals/)
 - Native C++ Desktop Rendering Introduction & Best Practice
 	- [Overview of the Windows Graphics Architecture](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/overview-of-the-windows-graphics-architecture)
-	- [OpenGL](https://learnopengl.com/Getting-started/OpenGL) & [Unity](https://link.zhihu.com/?target=http%3A//unity3d.com/learn/tutorials/modules) Introduction
+		- [GDI](https://msdn.microsoft.com/en-us/library/ms969913.aspx)
+		- [GDI+](https://docs.microsoft.com/en-us/windows/desktop/gdiplus/-gdiplus-gdi-start)
+		- [OpenGL](https://learnopengl.com/Getting-started/OpenGL)
+		- [Unity](https://link.zhihu.com/?target=http%3A//unity3d.com/learn/tutorials/modules) 
 	- [Direct2D in action](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/your-first-direct2d-program)
 	- Howto: [Improving the performance of Direct2D apps](https://docs.microsoft.com/en-us/windows/desktop/direct2d/improving-direct2d-performance)
 - Performance Tunning
