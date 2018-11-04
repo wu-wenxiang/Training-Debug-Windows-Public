@@ -9,7 +9,7 @@
 - Prerequirements
 	- Assembly Language
 		- x86: [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-instructions)
-		- x64 [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-instructions)
+		- x64: [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-instructions)
 		- [Writing Functions with Inline Assembly](https://msdn.microsoft.com/en-us/library/5sds75we.aspx)
 	- C++
 		- [Welcome Back to C++ (Modern C++)](https://msdn.microsoft.com/en-us/library/hh279654.aspx)
