@@ -23,11 +23,16 @@
 		- [Windows Internals Book](https://docs.microsoft.com/en-us/sysinternals/learn/windows-internals)
 		- [Windows Sysinternals](https://docs.microsoft.com/en-us/sysinternals/): [Forums Support](https://social.technet.microsoft.com/Forums/en-US/home?category=sysinternals&amp;filter=alltypes&amp;sort=lastpostdesc), [一句话介绍](http://blog.wuwenxiang.net/Windows-Sysinternals), [使用文档](https://docs.microsoft.com/en-us/sysinternals/learn/troubleshooting-book)
 - Native C++ Desktop Rendering Introduction & Best Practice
+	- Rendering Pipeline
+	- ![渲染管线.jpg](https://pic4.zhimg.com/v2-1e286dd517c717e3f1c48792275f7e87_r.jpg)
+	- Rasterization
+	- ![三角形的软件光栅化.png](http://hi.csdn.net/attachment/201103/8/8458191_1299585635RfNA.png)
 	- [Overview of the Windows Graphics Architecture](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/overview-of-the-windows-graphics-architecture)
 		- [GDI](https://msdn.microsoft.com/en-us/library/ms969913.aspx)
 		- [GDI+](https://docs.microsoft.com/en-us/windows/desktop/gdiplus/-gdiplus-gdi-start)
 		- [OpenGL](https://learnopengl.com/Getting-started/OpenGL)
 		- [Unity](https://link.zhihu.com/?target=http%3A//unity3d.com/learn/tutorials/modules) 
+	- [Comparing Direct2D and GDI Hardware Acceleration](https://docs.microsoft.com/en-us/windows/desktop/direct2d/comparing-direct2d-and-gdi)
 	- [Direct2D in action](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/your-first-direct2d-program)
 	- Howto: [Improving the performance of Direct2D apps](https://docs.microsoft.com/en-us/windows/desktop/direct2d/improving-direct2d-performance)
 - Performance Tunning
