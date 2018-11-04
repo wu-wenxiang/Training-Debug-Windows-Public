@@ -48,6 +48,7 @@
 	- Demo
 		- [Crash](https://msdn.microsoft.com/library/windows/desktop/ee416349)
 		- [Hang](https://blogs.msdn.microsoft.com/benjaminperkins/2013/01/08/debugging-a-hung-application-with-windbg/)
+		- [Hang2](https://blogs.msdn.microsoft.com/msdnts/2006/11/24/how-to-debug-application-crashhang-in-production-environment/)
 		- [Native Memory Leak](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-umdh-to-find-a-user-mode-memory-leak)
 		- [Managed Memory Leak](https://blogs.msdn.microsoft.com/paullou/2011/06/28/debugging-managed-code-memory-leak-with-memory-dump-using-windbg/)
 		- [CPU High](https://blogs.msdn.microsoft.com/ntdebugging/2008/05/15/how-to-track-down-high-cpu-in-user-mode-applications-a-live-debug/)
