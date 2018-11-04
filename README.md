@@ -49,7 +49,7 @@
 	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
 	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
 	- [Standard Debugging Techniques](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/standard-debugging-techniques)
-	- [CrashMe Project](https://mikedoszhang.blogspot.com/search?q=CrashMe+analysis+tutorial)
+	- [CrashMe Project](http://windbg.info/apps/46-crashme.html)
 	- Tools: [Procdump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
 	- Demo
 		- [Crash](https://msdn.microsoft.com/library/windows/desktop/ee416349)
