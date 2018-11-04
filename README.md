@@ -4,6 +4,7 @@
 	- OS：Win7 / Win8.1 / Win10
 	- IDE：VS2015 / VS2017
 - 下载：[工具 & Demo](https://share.weiyun.com/5SHAbCW)
+- 源码：[Github](https://github.com/wu-wenxiang/Training-Debug-Windows-Public)，[下载](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/archive/master.zip)
 
 ## 内容
 - Prerequirements
