@@ -45,18 +45,34 @@
 - Windbg Usage & Demo
 	- [Windbg Download & Installation](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools)
 	- [Debugging with Symbols](https://docs.microsoft.com/en-us/windows/desktop/dxtecharts/debugging-with-symbols)
+		- Tools: [pdbcopy](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-pdbcopy)
+			- `pdbcopy CrashMe.pdb public.pdb -p`
 		- Tools: [chkmatch](http://www.debuginfo.com/tools/chkmatch.html)：
 			- `chkmatch -c ExeFile DebugInfoFile`
 			- `chkmatch -m ExeFile DebugInfoFile`
-		- [强行Load Symbol](http://ntcoder.com/bab/2012/03/06/how-to-force-symbol-loading-in-windbg/): 
+		- [Force Load Symbol](http://ntcoder.com/bab/2012/03/06/how-to-force-symbol-loading-in-windbg/): 
 			- `.symopt+ 0x40`
 			- `.reload /f /i test.exe`
 			- [`.reload /f /i MyDll.dll=77777777`](https://stackoverflow.com/questions/10979418/forcing-windbg-to-load-symbols-of-an-unloaded-module)
+		- Tools: [Symchk](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-symchk)
+			- `"c:\Program Files\Debugging Tools for Windows\symchk" testing.dll /s`
+		- Tools: [dumpbin](https://msdn.microsoft.com/en-us/library/c1h23y6c.aspx?f=255&MSPPError=-2147217396)
+			- `dumpbin /PDBPATH:VERBOSE CrashMe.exe`
+			- `dumpbin /headers CrashMe.exe`
 	- [Getting Started With Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg)
 	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
 	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
 	- [Standard Debugging Techniques](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/standard-debugging-techniques)
+	- [Viewing and Editing Memory in WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/memory-window)
 	- [CrashMe Project](http://windbg.info/apps/46-crashme.html)
+		- 01-breakpoint
+		- 02-asm-int-3
+		- 03-raise-exception
+		- 04-throw
+		- 05-stackoverflow
+		- 10-check-for-debugger
+		- 12-test
+		- 16-Heap
 	- Tools: [Procdump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
 	- Demo
 		- [Crash](https://msdn.microsoft.com/library/windows/desktop/ee416349)
@@ -64,7 +80,7 @@
 		- [Hang2](https://blogs.msdn.microsoft.com/msdnts/2006/11/24/how-to-debug-application-crashhang-in-production-environment/)
 		- [Native Memory Leak](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-umdh-to-find-a-user-mode-memory-leak)
 		- [Managed Memory Leak](https://blogs.msdn.microsoft.com/paullou/2011/06/28/debugging-managed-code-memory-leak-with-memory-dump-using-windbg/)
-		- [CPU High](https://blogs.msdn.microsoft.com/ntdebugging/2008/05/15/how-to-track-down-high-cpu-in-user-mode-applications-a-live-debug/)
+		- [CPU High](https://blogs.msdn.microsoft.com/ntdebugging/2008/05/15/how-to-track-down-high-cpu-in-user-mode-applications-a-live-debug/) 
 	- Scripts: [pykd](https://github.com/wu-wenxiang/Tool-Windbg-Pykd-Scripts)
 	- Tools: [DebugDiag](https://www.microsoft.com/en-us/download/details.aspx?id=49924)
 		- Demo: [How to use the Debug Diagnostics tool to troubleshoot a process that has stopped responding in IIS](https://support.microsoft.com/en-us/help/919792/how-to-use-the-debug-diagnostics-tool-to-troubleshoot-a-process-that-h)
