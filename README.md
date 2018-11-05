@@ -45,6 +45,13 @@
 - Windbg Usage & Demo
 	- [Windbg Download & Installation](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools)
 	- [Debugging with Symbols](https://docs.microsoft.com/en-us/windows/desktop/dxtecharts/debugging-with-symbols)
+		- Tools: [chkmatch](http://www.debuginfo.com/tools/chkmatch.html)：
+			- `chkmatch -c ExeFile DebugInfoFile`
+			- `chkmatch -m ExeFile DebugInfoFile`
+		- [强行Load Symbol](http://ntcoder.com/bab/2012/03/06/how-to-force-symbol-loading-in-windbg/): 
+			- `.symopt+ 0x40`
+			- `.reload /f /i test.exe`
+			- [`.reload /f /i MyDll.dll=77777777`](https://stackoverflow.com/questions/10979418/forcing-windbg-to-load-symbols-of-an-unloaded-module)
 	- [Getting Started With Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg)
 	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
 	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
