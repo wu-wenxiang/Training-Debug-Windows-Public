@@ -72,9 +72,17 @@
 		- 03-raise-exception
 		- 04-throw
 		- 05-stackoverflow
+		- 06-Division-By-NULL
+		- 07-StackOverflow-with-recursion
+		- 08-Nested-Exceptions
+		- 09-Access-Test-Variable
 		- 10-check-for-debugger
-		- 12-test
-		- 16-Heap
+		- 11-Enter-Critical-Section
+		- 12-test-Calling-Conventions
+		- 13-Invalid-Handles
+		- 14-set-last-error
+		- 15-HeapAlloc
+		- 16-HeapDealloc
 	- Demo
 		- [Crash](https://msdn.microsoft.com/library/windows/desktop/ee416349)
 		- [Hang](https://blogs.msdn.microsoft.com/benjaminperkins/2013/01/08/debugging-a-hung-application-with-windbg/)
