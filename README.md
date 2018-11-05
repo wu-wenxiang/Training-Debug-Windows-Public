@@ -66,6 +66,8 @@
 	- [Viewing and Editing Memory in WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/memory-window)
 	- [CrashMe Project](http://windbg.info/apps/46-crashme.html)
 		- 01-breakpoint
+			- Tools: [WER Dump](https://docs.microsoft.com/zh-cn/windows/desktop/wer/wer-settings)
+			- Tools: [Procdump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
 		- 02-asm-int-3
 		- 03-raise-exception
 		- 04-throw
@@ -73,7 +75,6 @@
 		- 10-check-for-debugger
 		- 12-test
 		- 16-Heap
-	- Tools: [Procdump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
 	- Demo
 		- [Crash](https://msdn.microsoft.com/library/windows/desktop/ee416349)
 		- [Hang](https://blogs.msdn.microsoft.com/benjaminperkins/2013/01/08/debugging-a-hung-application-with-windbg/)
