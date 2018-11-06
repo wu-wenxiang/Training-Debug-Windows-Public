@@ -105,6 +105,7 @@
 		- [Native Memory Leak](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-umdh-to-find-a-user-mode-memory-leak)
 		- [Managed Memory Leak](https://blogs.msdn.microsoft.com/paullou/2011/06/28/debugging-managed-code-memory-leak-with-memory-dump-using-windbg/)
 		- [CPU High](https://blogs.msdn.microsoft.com/ntdebugging/2008/05/15/how-to-track-down-high-cpu-in-user-mode-applications-a-live-debug/) 
+			- `!runaway`
 	- Scripts: [pykd](https://github.com/wu-wenxiang/Tool-Windbg-Pykd-Scripts)
 	- Tools: [DebugDiag](https://www.microsoft.com/en-us/download/details.aspx?id=49924)
 		- Demo: [How to use the Debug Diagnostics tool to troubleshoot a process that has stopped responding in IIS](https://support.microsoft.com/en-us/help/919792/how-to-use-the-debug-diagnostics-tool-to-troubleshoot-a-process-that-h)
@@ -112,6 +113,11 @@
 - What's More?
 	- [Getting Started With Windbg Kernel Mode](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg--kernel-mode-)
 	- [Mex Extension](https://www.microsoft.com/en-us/download/details.aspx?id=53304): [Usage Blog](https://blogs.msdn.microsoft.com/luisdem/2016/07/19/mex-debugging-extension-for-windbg-2/)
+		- `!mex.writemodule -a -p C:\testmodule`
+		- `!mex.strings`
+		- `!mex.runaway2`
+		- `!mex.t`
+		- `!mex.us -l`
 	- [Debugging Using Windbg Preview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg-preview)
 	- [Time Travel Debugging Overview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-overview)
 	- Scripts: [javascript](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-javascript-automation)
