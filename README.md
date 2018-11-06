@@ -68,14 +68,29 @@
 		- 01-breakpoint
 			- Tools: [WER Dump](https://docs.microsoft.com/zh-cn/windows/desktop/wer/wer-settings)
 			- Tools: [Procdump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
+			- EventLog
+			- Dump first check
+			- `!analyze -v`
 		- 02-asm-int-3
+			- Faulting IP
+			- Error Code
 		- 03-raise-exception
+			- kernelbase!RaiseException
 		- 04-throw
+			- `.dump /ma C:\test.dmp`
+			- `kP`
+			- `dd` <Exception Object>
 		- 05-stackoverflow
+			- [`windbg -I`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-options)
+			- [enabling-postmortem-debugging](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/enabling-postmortem-debugging)
+			- [How to disable or enable Dr. Watson for Windows](https://support.microsoft.com/en-us/help/188296/how-to-disable-or-enable-dr-watson-for-windows)
+			- [`kd`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/k--kb--kc--kd--kp--kp--kv--display-stack-backtrace-)
+			- `uf <Address>`
 		- 06-Division-By-NULL
 		- 07-StackOverflow-with-recursion
 		- 08-Nested-Exceptions
 		- 09-Access-Test-Variable
+			- Locals Window 
 		- 10-check-for-debugger
 		- 11-Enter-Critical-Section
 		- 12-test-Calling-Conventions
