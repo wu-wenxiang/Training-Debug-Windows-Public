@@ -1,0 +1,103 @@
+## 准备工作、工具、环境和Demo
+- 环境：
+	- OS：Win7 / Win8.1 / Win10
+	- IDE：VS2015 / VS2017
+- 下载：[工具 & Demo](https://share.weiyun.com/5SHAbCW)
+- 源码：[Github](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src)，[下载](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/archive/master.zip)
+
+## 内容
+- Prerequirements
+	- Assembly Language
+		- x86: [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x86-instructions)
+		- x64: [Architecture](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-architecture), [Instructions](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/x64-instructions)
+		- [Writing Functions with Inline Assembly](https://msdn.microsoft.com/en-us/library/5sds75we.aspx)
+	- C++
+		- [Welcome Back to C++ (Modern C++)](https://msdn.microsoft.com/en-us/library/hh279654.aspx)
+		- [C++ Language Reference](https://msdn.microsoft.com/en-us/library/3bstk3k5.aspx)
+		- [Lambda Expressions in C++](https://msdn.microsoft.com/en-us/library/dd293608.aspx)
+		- [C++ Standard Library Reference](https://msdn.microsoft.com/en-us/library/cscc687y.aspx)
+	- Python
+		- [Download](https://www.python.org/downloads/)
+		- [Installation](https://github.com/wu-wenxiang/Training-Python-Public/blob/master/doc/Installation-Python.md)
+	- Windows操作系统基础
+		- [Windows Internals Book](https://docs.microsoft.com/en-us/sysinternals/learn/windows-internals)
+		- [Windows Sysinternals](https://docs.microsoft.com/en-us/sysinternals/): [Forums Support](https://social.technet.microsoft.com/Forums/en-US/home?category=sysinternals&amp;filter=alltypes&amp;sort=lastpostdesc), [一句话介绍](http://blog.wuwenxiang.net/Windows-Sysinternals), [使用文档](https://docs.microsoft.com/en-us/sysinternals/learn/troubleshooting-book)
+- Windbg Usage & Demo
+	- [Windbg Download & Installation](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugger-download-tools)
+	- [Debugging with Symbols](https://docs.microsoft.com/en-us/windows/desktop/dxtecharts/debugging-with-symbols)
+		- Tools: [pdbcopy](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-pdbcopy)
+			- `pdbcopy CrashMe.pdb public.pdb -p`
+		- Tools: [chkmatch](http://www.debuginfo.com/tools/chkmatch.html)：
+			- `chkmatch -c ExeFile DebugInfoFile`
+			- `chkmatch -m ExeFile DebugInfoFile`
+		- [Force Load Symbol](http://ntcoder.com/bab/2012/03/06/how-to-force-symbol-loading-in-windbg/): 
+			- `.symopt+ 0x40`
+			- `.reload /f /i test.exe`
+			- [`.reload /f /i MyDll.dll=77777777`](https://stackoverflow.com/questions/10979418/forcing-windbg-to-load-symbols-of-an-unloaded-module)
+		- Tools: [Symchk](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-symchk)
+			- `"c:\Program Files\Debugging Tools for Windows\symchk" testing.dll /s`
+		- Tools: [dumpbin](https://msdn.microsoft.com/en-us/library/c1h23y6c.aspx?f=255&MSPPError=-2147217396)
+			- `dumpbin /PDBPATH:VERBOSE CrashMe.exe`
+			- `dumpbin /headers CrashMe.exe`
+	- [Getting Started With Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg)
+	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
+	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
+	- [Standard Debugging Techniques](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/standard-debugging-techniques)
+	- [Viewing and Editing Memory in WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/memory-window)
+	- [CrashMe Project](http://windbg.info/apps/46-crashme.html)
+		- 01-breakpoint
+			- Tools: [WER Dump](https://docs.microsoft.com/zh-cn/windows/desktop/wer/wer-settings)
+			- Tools: [Procdump](https://docs.microsoft.com/en-us/sysinternals/downloads/procdump)
+			- EventLog
+			- Dump first check
+			- `!analyze -v`
+		- 02-asm-int-3
+			- Faulting IP
+			- Error Code
+		- 03-raise-exception
+			- kernelbase!RaiseException
+		- 04-throw
+			- `.dump /ma C:\test.dmp`
+			- `kP`
+			- `dd` <Exception Object>
+		- 05-stackoverflow
+			- [`windbg -I`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-options)
+			- [enabling-postmortem-debugging](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/enabling-postmortem-debugging)
+			- [How to disable or enable Dr. Watson for Windows](https://support.microsoft.com/en-us/help/188296/how-to-disable-or-enable-dr-watson-for-windows)
+			- [`kd`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/k--kb--kc--kd--kp--kp--kv--display-stack-backtrace-)
+			- `uf <Address>`
+		- 06-Division-By-NULL
+		- 07-StackOverflow-with-recursion
+		- 08-Nested-Exceptions
+		- 09-Access-Test-Variable
+			- Locals Window 
+		- 10-check-for-debugger
+		- 11-Enter-Critical-Section
+		- 12-test-Calling-Conventions
+		- 13-Invalid-Handles
+		- 14-set-last-error
+		- 15-HeapAlloc
+		- 16-HeapDealloc
+	- Demo
+		- [Crash](https://msdn.microsoft.com/library/windows/desktop/ee416349)
+		- [Hang](https://blogs.msdn.microsoft.com/benjaminperkins/2013/01/08/debugging-a-hung-application-with-windbg/)
+		- [Hang2](https://blogs.msdn.microsoft.com/msdnts/2006/11/24/how-to-debug-application-crashhang-in-production-environment/)
+		- [Native Memory Leak](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/using-umdh-to-find-a-user-mode-memory-leak)
+		- [Managed Memory Leak](https://blogs.msdn.microsoft.com/paullou/2011/06/28/debugging-managed-code-memory-leak-with-memory-dump-using-windbg/)
+		- [CPU High](https://blogs.msdn.microsoft.com/ntdebugging/2008/05/15/how-to-track-down-high-cpu-in-user-mode-applications-a-live-debug/) 
+			- `!runaway`
+	- Scripts: [pykd](https://github.com/wu-wenxiang/Tool-Windbg-Pykd-Scripts)
+	- Tools: [DebugDiag](https://www.microsoft.com/en-us/download/details.aspx?id=49924)
+		- Demo: [How to use the Debug Diagnostics tool to troubleshoot a process that has stopped responding in IIS](https://support.microsoft.com/en-us/help/919792/how-to-use-the-debug-diagnostics-tool-to-troubleshoot-a-process-that-h)
+		- Demo: [How to use the Debug Diagnostics Tool to troubleshoot high CPU usage by a process in IIS](https://support.microsoft.com/en-us/help/919791/how-to-use-the-debug-diagnostics-tool-to-troubleshoot-high-cpu-usage-b)
+- What's More?
+	- [Getting Started With Windbg Kernel Mode](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg--kernel-mode-)
+	- [Mex Extension](https://www.microsoft.com/en-us/download/details.aspx?id=53304): [Usage Blog](https://blogs.msdn.microsoft.com/luisdem/2016/07/19/mex-debugging-extension-for-windbg-2/)
+		- `!mex.writemodule -a -p C:\testmodule`
+		- `!mex.strings`
+		- `!mex.runaway2`
+		- `!mex.t`
+		- `!mex.us -l`
+	- [Debugging Using Windbg Preview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg-preview)
+	- [Time Travel Debugging Overview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-overview)
+	- Scripts: [javascript](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-javascript-automation)
