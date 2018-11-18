@@ -7,15 +7,39 @@
 ## Microsoft Media Foundation
 - Overview
 	- [Overview of the Media Foundation Architecture](https://docs.microsoft.com/en-us/windows/desktop/medfound/overview-of-the-media-foundation-architecture)
+		- COM-based multimedia framework pipeline and infrastructure platform for digital media. 
+		- The intended replacement for Microsoft DirectShow, Windows Media SDK, DirectX Media Objects (DMOs) and all other so-called "legacy" multimedia APIs such as Audio Compression Manager (ACM) and Video for Windows (VfW). 
+		- ![MFoundation.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/MFoundation.svg/720px-MFoundation.svg.png)
+		- ![MF-architecture.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/mfarch01.png)
 	- [What's New for Media Foundation](https://docs.microsoft.com/en-us/windows/desktop/medfound/whats-new-for-media-foundation), [Win7](https://msdn.microsoft.com/zh-cn/library/ee461351.aspx)
 - Tools
-	- [MFTrace](https://docs.microsoft.com/en-us/windows/desktop/medfound/using-mftrace)
-	- [TopoEdit](https://docs.microsoft.com/en-us/windows/desktop/medfound/introduction-to-topoedit)
+	- [MFTrace](https://docs.microsoft.com/en-us/windows/desktop/medfound/using-mftrace) is a tool for generating trace logs for Media Foundation applications
+		- MFTrace uses the Detours library to hook into Media Foundation API calls and generate trace logs. 
+		- MFTrace can also record traces from any component that uses Event Tracing for Windows (ETW) or the software trace preprocessor (WPP) to generate traces.
+		- Onlaunch: `mftrace.exe wmplayer.exe Wildlife.wmv`
+		- Attach: `mftrace.exe -a wmplayer.exe -o trace.txt`
+	- [TopoEdit](https://docs.microsoft.com/en-us/windows/desktop/medfound/introduction-to-topoedit) is a visual tool for testing Media Foundation components
+		- [关于拓扑](https://docs.microsoft.com/en-us/windows/desktop/medfound/about-topologies)
+		- ![topology01.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/topology01.png)
+		- [building topologies by using topoedit](https://docs.microsoft.com/en-us/windows/desktop/medfound/building-topologies-by-using-topoedit)
+		- ![Topo.gif](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/e94b4cce-aa8a-497f-94c2-cc9dace17291.gif)
+		- ![topo.png](https://raw.githubusercontent.com/wu-wenxiang/Media-WebLink/master/qiniu/8661eb768fee4b91b78cc8470be5ac02-topo.png)
 - Media Foundation Programming Guide
 	- [Media Foundation: Essential Concepts](https://docs.microsoft.com/en-us/windows/desktop/medfound/media-foundation-programming--essential-concepts)
-	- Audio/Video Playback
+		- Streams：最常见的类型是音频和视频，视频文件可能包含一个视频流和几种不同语言的音频流
+		- Compression：压缩也称为编码，反向过程是解码。对应的设备是编码器/解码器。
+		- Media Containers
+			- ![MediaContainers.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/concepts01.png)
+		- Formats
+			- ![Decoder.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/concepts02.png)
+			- ![Encoder.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/concepts03.png)
 	- Audio/Video Capture
-	- Encoding and File Authoring
-	- Media Metadata
-	- Networking in Media Foundation
 - Media Foundation SDK Samples
+	- [MFCaptureToFile Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/mfcapturetofile-sample)
+	- [SimpleCapture Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/simplecapture-sample)
+- Questions
+	- topology中添加mp4的encoder步骤（以media session和topology的形式实现采集摄像头并保存为mp4文件）
+	- media session对topology中的节点，部分节点启动，部分节点停止是否支持。如果支持如何做
+	- fmt中如果有多个input；streamid分别为0、1、2、3。media session启动后如果mft只request streamid为0的数据流其他不request，会有什么问题?
+	- topology中如果某个media source节点流结束或异常中断。整个media session是否会出现异常。
+	- 重新构建topology是否需要先停止media session?
