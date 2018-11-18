@@ -23,6 +23,7 @@
 		- ![topology01.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/topology01.png)
 		- [building topologies by using topoedit](https://docs.microsoft.com/en-us/windows/desktop/medfound/building-topologies-by-using-topoedit)
 		- ![Topo.gif](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/e94b4cce-aa8a-497f-94c2-cc9dace17291.gif)
+		- ![topo.png](https://raw.githubusercontent.com/wu-wenxiang/Media-WebLink/master/qiniu/8661eb768fee4b91b78cc8470be5ac02-topo.png)
 - Media Foundation Programming Guide
 	- [Media Foundation: Essential Concepts](https://docs.microsoft.com/en-us/windows/desktop/medfound/media-foundation-programming--essential-concepts)
 		- Streams：最常见的类型是音频和视频，视频文件可能包含一个视频流和几种不同语言的音频流
@@ -32,11 +33,7 @@
 		- Formats
 			- ![Decoder.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/concepts02.png)
 			- ![Encoder.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/concepts03.png)
-	- Audio/Video Playback
 	- Audio/Video Capture
-	- Encoding and File Authoring
-	- Media Metadata
-	- Networking in Media Foundation
 - Media Foundation SDK Samples
 	- [MFCaptureToFile Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/mfcapturetofile-sample)
 	- [SimpleCapture Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/simplecapture-sample)
