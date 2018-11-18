@@ -16,12 +16,10 @@
 		- ![encoding05.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding05.png)
 		- Media Foundation Encoding Architecture
 		- ![encoding04.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding04.png)
-		- Media Session
+		- [Media Session](https://docs.microsoft.com/en-us/windows/desktop/medfound/about-the-media-session)
 		- ![encoding01.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding01.png)
-		- Source Reader plus Sink Writer
+		- [Source Reader](https://docs.microsoft.com/en-us/windows/desktop/medfound/source-reader) & [Sink Writer](https://docs.microsoft.com/en-us/windows/desktop/medfound/sink-writer)
 		- ![encoding02.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding02.png)
-		- [Source Reader](https://docs.microsoft.com/en-us/windows/desktop/medfound/source-reader)
-		- [Sink Writer](https://docs.microsoft.com/en-us/windows/desktop/medfound/sink-writer)
 	- [What's New for Media Foundation](https://docs.microsoft.com/en-us/windows/desktop/medfound/whats-new-for-media-foundation), [Win7](https://msdn.microsoft.com/zh-cn/library/ee461351.aspx)
 - Tools
 	- [MFTrace](https://docs.microsoft.com/en-us/windows/desktop/medfound/using-mftrace) is a tool for generating trace logs for Media Foundation applications
@@ -35,6 +33,8 @@
 		- [building topologies by using topoedit](https://docs.microsoft.com/en-us/windows/desktop/medfound/building-topologies-by-using-topoedit)
 		- ![Topo.gif](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/e94b4cce-aa8a-497f-94c2-cc9dace17291.gif)
 		- ![topo.png](https://raw.githubusercontent.com/wu-wenxiang/Media-WebLink/master/qiniu/8661eb768fee4b91b78cc8470be5ac02-topo.png)
+	- Performance: [Xperf](https://blogs.msdn.microsoft.com/ntdebugging/2008/04/03/windows-performance-toolkit-xperf/), [GPUView](https://docs.microsoft.com/en-us/windows-hardware/drivers/display/using-gpuview), [UIforETW](https://github.com/google/UIforETW/releases) 
+	- [Sysinternals](https://docs.microsoft.com/en-us/sysinternals/downloads): Procdump, Procmon, ProcExp
 - Media Foundation Programming Guide
 	- [Media Foundation: Essential Concepts](https://docs.microsoft.com/en-us/windows/desktop/medfound/media-foundation-programming--essential-concepts)
 		- Streams：最常见的类型是音频和视频，视频文件可能包含一个视频流和几种不同语言的音频流
@@ -60,6 +60,6 @@
 	- fmt中如果有多个input；streamid分别为0、1、2、3。media session启动后如果mft只request streamid为0的数据流其他不request，会有什么问题?
 		- Suppose no issue, need test
 	- topology中如果某个media source节点流结束或异常中断。整个media session是否会出现异常。
-		- Suppose hang or crash, could test & Dump debug
+		- Hang or crash, could test & Dump debug
 	- 重新构建topology是否需要先停止media session?
 		- [Advanced Topology Building](https://docs.microsoft.com/en-us/windows/desktop/medfound/advanced-topology-building)
