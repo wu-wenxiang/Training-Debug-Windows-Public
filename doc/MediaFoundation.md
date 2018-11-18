@@ -37,6 +37,8 @@
 - Media Foundation SDK Samples
 	- [MFCaptureToFile Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/mfcapturetofile-sample)
 	- [SimpleCapture Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/simplecapture-sample)
+	- [MFT-Audiodelay Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/mft-audiodelay-sample)
+	- [Transcode Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/transcode-sample)
 - Questions
 	- topology中添加mp4的encoder步骤（以media session和topology的形式实现采集摄像头并保存为mp4文件）
 	- media session对topology中的节点，部分节点启动，部分节点停止是否支持。如果支持如何做
