@@ -11,6 +11,15 @@
 		- The intended replacement for Microsoft DirectShow, Windows Media SDK, DirectX Media Objects (DMOs) and all other so-called "legacy" multimedia APIs such as Audio Compression Manager (ACM) and Video for Windows (VfW). 
 		- ![MFoundation.svg.png](https://upload.wikimedia.org/wikipedia/commons/thumb/d/d4/MFoundation.svg/720px-MFoundation.svg.png)
 		- ![MF-architecture.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/mfarch01.png)
+	- [Overview of Encoding in Media Foundation](https://docs.microsoft.com/en-us/windows/desktop/medfound/overview-of-encoding-in-media-foundation)
+		- ![encoding03.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding03.png)
+		- ![encoding05.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding05.png)
+		- Media Foundation Encoding Architecture
+		- ![encoding04.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding04.png)
+		- Media Session
+		- ![encoding01.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding01.png)
+		- Source Reader plus Sink Writer
+		- ![encoding02.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding02.png)
 	- [What's New for Media Foundation](https://docs.microsoft.com/en-us/windows/desktop/medfound/whats-new-for-media-foundation), [Win7](https://msdn.microsoft.com/zh-cn/library/ee461351.aspx)
 - Tools
 	- [MFTrace](https://docs.microsoft.com/en-us/windows/desktop/medfound/using-mftrace) is a tool for generating trace logs for Media Foundation applications
