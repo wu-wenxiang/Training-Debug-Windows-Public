@@ -20,6 +20,8 @@
 		- ![encoding01.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding01.png)
 		- Source Reader plus Sink Writer
 		- ![encoding02.png](https://docs.microsoft.com/en-us/windows/desktop/medfound/images/encoding02.png)
+		- [Source Reader](https://docs.microsoft.com/en-us/windows/desktop/medfound/source-reader)
+		- [Sink Writer](https://docs.microsoft.com/en-us/windows/desktop/medfound/sink-writer)
 	- [What's New for Media Foundation](https://docs.microsoft.com/en-us/windows/desktop/medfound/whats-new-for-media-foundation), [Win7](https://msdn.microsoft.com/zh-cn/library/ee461351.aspx)
 - Tools
 	- [MFTrace](https://docs.microsoft.com/en-us/windows/desktop/medfound/using-mftrace) is a tool for generating trace logs for Media Foundation applications
@@ -50,7 +52,14 @@
 	- [Transcode Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/transcode-sample)
 - Questions
 	- topology中添加mp4的encoder步骤（以media session和topology的形式实现采集摄像头并保存为mp4文件）
+		- [Transcode Sample](https://docs.microsoft.com/en-us/windows/desktop/medfound/transcode-sample)
+		- [Tutorial: Encoding an MP4 File](https://docs.microsoft.com/en-us/windows/desktop/medfound/tutorial--encoding-an-mp4-file-)
+		- [Tutorial: Using the Sink Writer to Encode Video](https://docs.microsoft.com/en-us/windows/desktop/medfound/tutorial--using-the-sink-writer-to-encode-video)
 	- media session对topology中的节点，部分节点启动，部分节点停止是否支持。如果支持如何做
+		- Suppose no, need check
 	- fmt中如果有多个input；streamid分别为0、1、2、3。media session启动后如果mft只request streamid为0的数据流其他不request，会有什么问题?
+		- Suppose no issue, need test
 	- topology中如果某个media source节点流结束或异常中断。整个media session是否会出现异常。
+		- Suppose hang or crash, could test & Dump debug
 	- 重新构建topology是否需要先停止media session?
+		- [Advanced Topology Building](https://docs.microsoft.com/en-us/windows/desktop/medfound/advanced-topology-building)
