@@ -56,10 +56,10 @@
 		- [Tutorial: Encoding an MP4 File](https://docs.microsoft.com/en-us/windows/desktop/medfound/tutorial--encoding-an-mp4-file-)
 		- [Tutorial: Using the Sink Writer to Encode Video](https://docs.microsoft.com/en-us/windows/desktop/medfound/tutorial--using-the-sink-writer-to-encode-video)
 	- media session对topology中的节点，部分节点启动，部分节点停止是否支持。如果支持如何做
-		- Suppose no, need check
+		- No, [About The Media Session](https://docs.microsoft.com/en-us/windows/desktop/medfound/about-the-media-session)
 	- fmt中如果有多个input；streamid分别为0、1、2、3。media session启动后如果mft只request streamid为0的数据流其他不request，会有什么问题?
-		- Suppose no issue, need test
+		- No problem, [How to switch multi audio stream seamless in MF](https://social.msdn.microsoft.com/Forums/windowsdesktop/en-US/1c7ca768-81da-46bd-9b05-217e38a99e8d/how-to-switch-multi-audio-stream-seamless-in-mf?forum=mediafoundationdevelopment)
 	- topology中如果某个media source节点流结束或异常中断。整个media session是否会出现异常。
-		- Hang or crash, could test & Dump debug
+		- Hang or crash, could verify with debugger
 	- 重新构建topology是否需要先停止media session?
 		- [Advanced Topology Building](https://docs.microsoft.com/en-us/windows/desktop/medfound/advanced-topology-building)
