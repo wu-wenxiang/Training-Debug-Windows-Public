@@ -47,6 +47,53 @@ CTranscoder::~CTranscoder()
     SafeRelease(&m_pSession);
 }
 
+HRESULT CTranscoder::CreateVideoCaptureDevice()
+{
+	m_pSource = NULL;
+
+	UINT32 count = 0;
+
+	IMFAttributes *pConfig = NULL;
+	IMFActivate **ppDevices = NULL;
+
+	// Create an attribute store to hold the search criteria.
+	HRESULT hr = MFCreateAttributes(&pConfig, 1);
+
+	// Request video capture devices.
+	if (SUCCEEDED(hr))
+	{
+		hr = pConfig->SetGUID(
+			MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE,
+			MF_DEVSOURCE_ATTRIBUTE_SOURCE_TYPE_VIDCAP_GUID
+		);
+	}
+
+	// Enumerate the devices,
+	if (SUCCEEDED(hr))
+	{
+		hr = MFEnumDeviceSources(pConfig, &ppDevices, &count);
+	}
+
+	// Create a media source for the first device in the list.
+	if (SUCCEEDED(hr))
+	{
+		if (count > 0)
+		{
+			hr = ppDevices[0]->ActivateObject(IID_PPV_ARGS(&m_pSource));
+		}
+		else
+		{
+			hr = E_UNEXPECTED; //MF_E_NOT_FOUND;
+		}
+	}
+
+	for (DWORD i = 0; i < count; i++)
+	{
+		ppDevices[i]->Release();
+	}
+	CoTaskMemFree(ppDevices);
+	return hr;
+}
 
 //-------------------------------------------------------------------
 //  OpenFile
@@ -69,7 +116,8 @@ HRESULT CTranscoder::OpenFile(const WCHAR *sURL)
     HRESULT hr = S_OK;
 
     // Create the media source.
-    hr = CreateMediaSource(sURL, &m_pSource);
+    // hr = CreateMediaSource(sURL, &m_pSource);
+	hr = CreateVideoCaptureDevice();
 
     //Create the media session.
     if (SUCCEEDED(hr))
@@ -202,7 +250,7 @@ HRESULT CTranscoder::ConfigureVideoOutput()
     // Set the encoder to be Windows Media video encoder, so that the appropriate MFTs are added to the topology.
     if (SUCCEEDED(hr))
     {
-        hr = pVideoAttrs->SetGUID(MF_MT_SUBTYPE, MFVideoFormat_WMV3);
+        hr = pVideoAttrs->SetGUID(MF_MT_SUBTYPE, MFVideoFormat_H264);
     }
 
     // Set the frame rate.

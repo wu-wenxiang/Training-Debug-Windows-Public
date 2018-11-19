@@ -20,6 +20,9 @@ int wmain(int argc, wchar_t* argv[])
 {
     (void)HeapSetInformation(NULL, HeapEnableTerminationOnCorruption, NULL, 0);
 
+	wprintf_s(L"Press any key to start...\n");
+	getchar();
+
     if (argc != 3)
     {
         wprintf_s(L"Usage: %s input_file output_file\n", argv[0]);
@@ -44,7 +47,7 @@ int wmain(int argc, wchar_t* argv[])
 
         // Create a media source for the input file.
         hr = transcoder.OpenFile(sInputFile);
-
+		
         if (SUCCEEDED(hr))
         {
             wprintf_s(L"Opened file: %s.\n", sInputFile);

@@ -41,6 +41,7 @@ public:
     virtual ~CTranscoder();
 
     HRESULT OpenFile(const WCHAR *sURL);
+	HRESULT CreateVideoCaptureDevice();
     HRESULT ConfigureAudioOutput();
     HRESULT ConfigureVideoOutput();
     HRESULT ConfigureContainer();
