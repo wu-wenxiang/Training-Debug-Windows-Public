@@ -28,7 +28,8 @@ CTranscoder::CTranscoder() :
     m_pSession(NULL),
     m_pSource(NULL),
     m_pTopology(NULL),
-    m_pProfile(NULL)
+    m_pProfile(NULL),
+	m_pNode(NULL)
 {
 
 }
@@ -45,6 +46,7 @@ CTranscoder::~CTranscoder()
     SafeRelease(&m_pTopology);
     SafeRelease(&m_pSource);
     SafeRelease(&m_pSession);
+	SafeRelease(&m_pNode);
 }
 
 HRESULT CTranscoder::CreateVideoCaptureDevice()
@@ -340,6 +342,53 @@ HRESULT CTranscoder::ConfigureContainer()
     return hr;
 }
 
+template<class S>
+CLSID CreateGUID(const S& hexString)
+{
+	CLSID clsid;
+	CLSIDFromString(CComBSTR(hexString), &clsid);
+
+	return clsid;
+}
+
+HRESULT CTranscoder::AddTransformNode(
+)
+{
+	m_pNode = NULL;
+
+	IMFTopologyNode *pNode = NULL;
+
+	// Create the node.
+	HRESULT hr = MFCreateTopologyNode(MF_TOPOLOGY_TRANSFORM_NODE, &pNode);
+
+	// Set the CLSID attribute.
+
+	if (SUCCEEDED(hr))
+	{
+		const CLSID clsid = CreateGUID("{2F3DBC05-C011-4A8F-B264-E42E35C67BF4}");
+		wprintf_s(L"Try setting the CLSID attribute\n");
+		hr = pNode->SetGUID(MF_TOPONODE_TRANSFORM_OBJECTID, clsid);
+	}
+
+	// Add the node to the topology.
+	if (SUCCEEDED(hr))
+	{
+		wprintf_s(L"Try adding the node to the topology\n");
+		hr = m_pTopology->AddNode(pNode);
+	}
+
+	// Return the pointer to the caller.
+	if (SUCCEEDED(hr))
+	{
+		wprintf_s(L"Try Return the pointer to the caller\n");
+		m_pNode = pNode;
+		m_pNode->AddRef();
+	}
+
+	SafeRelease(&pNode);
+	return hr;
+}
+
 //-------------------------------------------------------------------
 //  EncodeToFile
 //        
@@ -361,6 +410,11 @@ HRESULT CTranscoder::EncodeToFile(const WCHAR *sURL)
 
     //Create the transcode topology
     hr = MFCreateTranscodeTopology( m_pSource, sURL, m_pProfile, &m_pTopology );
+	
+	if (SUCCEEDED(hr))
+	{
+		hr = AddTransformNode();
+	}
 
     // Set the topology on the media session.
     if (SUCCEEDED(hr))

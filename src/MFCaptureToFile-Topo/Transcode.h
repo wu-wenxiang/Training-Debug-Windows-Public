@@ -23,6 +23,8 @@
 #include <assert.h>
 #include <mfapi.h>
 #include <mfidl.h>
+#include <Windows.h>
+#include <atlbase.h>
 
 template <class T> void SafeRelease(T **ppT)
 {
@@ -42,6 +44,7 @@ public:
 
     HRESULT OpenFile(const WCHAR *sURL);
 	HRESULT CreateVideoCaptureDevice();
+	HRESULT AddTransformNode();
     HRESULT ConfigureAudioOutput();
     HRESULT ConfigureVideoOutput();
     HRESULT ConfigureContainer();
@@ -57,4 +60,5 @@ private:
     IMFMediaSource*         m_pSource;
     IMFTopology*            m_pTopology;
     IMFTranscodeProfile*    m_pProfile;
+	IMFTopologyNode*		m_pNode;
 };
