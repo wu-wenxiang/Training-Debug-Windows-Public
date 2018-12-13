@@ -1,9 +1,3 @@
-## 准备工作、工具、环境和Demo
-- 环境：
-	- OS：Win7 / Win8.1 / Win10
-	- IDE：VS2015 / VS2017
-- 源码：[Github](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src)，[下载](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/archive/master.zip)
-
 ## Microsoft Media Foundation
 - Overview
 	- [Overview of the Media Foundation Architecture](https://docs.microsoft.com/en-us/windows/desktop/medfound/overview-of-the-media-foundation-architecture)
