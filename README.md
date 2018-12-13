@@ -36,7 +36,7 @@
 		- How to implement Onlaunch debugging?
 		- How to implement Attach debugging?
 		- How to implement Breakpoint?
-		- DHow to implement Hook & Injection?
+		- How to implement Hook & Injection?
 	- Windbg Usage
 		- How to examine the Process Information?
 		- How to viewing and edit Memory?
