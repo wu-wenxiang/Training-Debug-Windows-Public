@@ -8,10 +8,11 @@
 ## 课程安排
 - 第1天
 	- Installation, Configuration & QuickStart
-		- Visual Studio
+		- Precheck Installation
+			- Python
+			- VisualStudio
 		- Windbg
 		- Sysinternal Kit
-		- Python
 		- How to launch a process as debug target with Windbg?
 		- How to attach/detach a process with Windbg?
 	- About Symbol
