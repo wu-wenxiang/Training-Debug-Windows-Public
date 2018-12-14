@@ -1,0 +1,13 @@
+## Sysinternals Suite
+- About Sysinternal tools
+	- How to find which process locked the files?
+	- How to release the file from the process?
+	- How to check the owner about a popup window?
+	- How to monitor memory/cpu/io by procexp?
+	- How to check the callstack for a high cpu process?
+	- How to check the strings from heap?
+	- How to check the PATH environment about the process?
+	- How to monitor file/registry/network/process/thread?
+	- How to capture a full memory dump?
+	- How to capture dumps based on conditions?
+	- How to analyze dumps automatically?
