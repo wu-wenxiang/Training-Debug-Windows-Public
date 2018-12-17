@@ -45,4 +45,9 @@
 		- `!mex.us -l`
 	- [Debugging Using Windbg Preview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg-preview)
 	- [Time Travel Debugging Overview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-overview)
+		- [Time Travel Debugging - Record a trace](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-record)
+		- [Time Travel Debugging - Replay a trace](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-replay)
+		- [Time Travel Debugging - Working with Trace Files](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-trace-file-information)
+		- [Time Travel Debugging - Sample App Walkthrough](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-walkthrough)
 	- Scripts: [javascript](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-javascript-automation)
+		- [Demo for IE](https://github.com/wu-wenxiang/Tool-Windbg-Pykd-Scripts/blob/master/javascripts/DumpHtmlElements.js)

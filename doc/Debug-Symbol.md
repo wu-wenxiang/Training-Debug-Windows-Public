@@ -78,7 +78,7 @@
 		- Real case: scan
 - Others
 	- What the order when windbg load symbols
-		- Ordersa:
+		- Order:
 			- The location that is specified inside the DLL or the executable file.
 			- PDBs that may be present in the same folder as the DLL or executable file.
 			- Any local symbol cache folders.
