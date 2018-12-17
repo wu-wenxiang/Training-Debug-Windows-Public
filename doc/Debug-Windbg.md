@@ -1,14 +1,21 @@
 ## Windbg Usage
 - Windbg Usage
-	- [Getting Started With Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg) ???
-		- How to examine the Process Information?
-		- How to viewing and edit Memory?
-		- How to set a Breakpoint at function entries?
-		- How to set a Breakpoint target writing memory?
-		- How to use debugger extensions?
-		- How to use !analyze in hang / crash scenarios?
-		- Why my source code could not display with !analyze -v?
-		- How to find error code of a win32 api that returns false
+	- [Getting Started With Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg)
+		- Notepad
+			- How to examine the Process Information?
+			- How to set a Breakpoint at function entries?
+				- `bp`/`bu`/`bm`: [document](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/unresolved-breakpoints---bu-breakpoints-) , [bp vs bu](https://blog.csdn.net/WinGeek/article/details/4025475)
+			- How to set a Breakpoint target writing memory?
+				- `ba w4 0xAAAAAA`
+			- How to viewing and edit Memory?
+				- `da` / `db` / `du`
+				- `eza`
+			- How to use debugger extensions?
+				- [pykd: dump heap strings](https://github.com/wu-wenxiang/Tool-Windbg-Pykd-Scripts/blob/master/scripts/memory-dump-heap-strings.py)
+		- Customize Application
+			- How to use !analyze in hang / crash scenarios?
+			- Why my source code could not display with !analyze -v?
+			- How to find error code of a win32 api that returns false???
 	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
 	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
 	- [Standard Debugging Techniques](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/standard-debugging-techniques)
