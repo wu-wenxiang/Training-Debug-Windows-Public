@@ -5,7 +5,7 @@ import sys
 import time
 kernel32 = windll.kernel32
 
-class debugger():
+class debugger(object):
 
     def __init__(self):
         self.h_process       =     None
@@ -50,6 +50,7 @@ class debugger():
         # which is just the size of the struct itself
         startupinfo.cb = sizeof(startupinfo)
         
+        input('Press any key to launch: %s' % path_to_exe)
         if kernel32.CreateProcessA(path_to_exe,
                                    None,
                                    None,
@@ -61,14 +62,13 @@ class debugger():
                                    byref(startupinfo),
                                    byref(process_information)):
             
-            print "[*] We have successfully launched the process!"
-            print "[*] The Process ID I have is: %d" % \
-                         process_information.dwProcessId
+            print("[*] We have successfully launched the process!")
+            print("[*] The Process ID I have is: %d" % process_information.dwProcessId)
             self.pid = process_information.dwProcessId
-            self.h_process = self.open_process(self,process_information.dwProcessId)
+            self.h_process = self.open_process(process_information.dwProcessId)
             self.debugger_active = True
         else:    
-            print "[*] Error with error code %d." % kernel32.GetLastError()
+            print("[*] Error with error code %d." % kernel32.GetLastError())
 
     def open_process(self,pid):
         
@@ -88,7 +88,7 @@ class debugger():
             self.pid             = int(pid)
                                   
         else:
-            print "[*] Unable to attach to the process."
+            print("[*] Unable to attach to the process.")
             
     def run(self):
         
@@ -109,8 +109,7 @@ class debugger():
             self.debug_event       = debug_event
             
                        
-            print "Event Code: %d Thread ID: %d" % \
-                (debug_event.dwDebugEventCode,debug_event.dwThreadId)
+            print("Event Code: %d Thread ID: %d" % (debug_event.dwDebugEventCode, debug_event.dwThreadId))
             
             if debug_event.dwDebugEventCode == EXCEPTION_DEBUG_EVENT:
                 self.exception = debug_event.u.Exception.ExceptionRecord.ExceptionCode
@@ -118,11 +117,11 @@ class debugger():
                 
                 # call the internal handler for the exception event that just occured.
                 if self.exception == EXCEPTION_ACCESS_VIOLATION:
-                    print "Access Violation Detected."
+                    print("Access Violation Detected.")
                 elif self.exception == EXCEPTION_BREAKPOINT:
                     continue_status = self.exception_handler_breakpoint()
                 elif self.exception == EXCEPTION_GUARD_PAGE:
-                    print "Guard Page Access Detected."
+                    print("Guard Page Access Detected.")
                 elif self.exception == EXCEPTION_SINGLE_STEP:
                     self.exception_handler_single_step()
                 
@@ -132,10 +131,10 @@ class debugger():
     def detach(self):
         
         if kernel32.DebugActiveProcessStop(self.pid):
-            print "[*] Finished debugging. Exiting..."
+            print("[*] Finished debugging. Exiting...")
             return True
         else:
-            print "There was an error"
+            print("There was an error")
             return False
     
     def open_thread (self, thread_id):
@@ -145,7 +144,7 @@ class debugger():
         if h_thread is not None:
             return h_thread
         else:
-            print "[*] Could not obtain a valid thread handle."
+            print("[*] Could not obtain a valid thread handle.")
             return False
         
     def enumerate_threads(self):
@@ -176,7 +175,6 @@ class debugger():
             return False
         
     def get_thread_context (self, thread_id=None,h_thread=None):
-        
         context = CONTEXT()
         context.ContextFlags = CONTEXT_FULL | CONTEXT_DEBUG_REGISTERS
         
@@ -185,7 +183,6 @@ class debugger():
             self.h_thread = self.open_thread(thread_id)
                         
         if kernel32.GetThreadContext(self.h_thread, byref(context)):
-            
             return context 
         else:
             return False
@@ -216,8 +213,8 @@ class debugger():
             return True
     
     def bp_set(self,address):
-        print "[*] Setting breakpoint at: 0x%08x" % address
-        if not self.breakpoints.has_key(address):
+        print("[*] Setting breakpoint at: 0x%08x" % address)
+        if address not in self.breakpoints:
 
             # store the original byte
             old_protect = c_ulong(0)
@@ -237,19 +234,19 @@ class debugger():
 
     
     def exception_handler_breakpoint(self):
-        print "[*] Exception address: 0x%08x" % self.exception_address
+        print("[*] Exception address: 0x%08x" % self.exception_address)
         # check if the breakpoint is one that we set
-        if not self.breakpoints.has_key(self.exception_address):
+        if self.exception_address not in self.breakpoints:
            
                 # if it is the first Windows driven breakpoint
                 # then let's just continue on
                 if self.first_breakpoint == True:
                    self.first_breakpoint = False
-                   print "[*] Hit the first breakpoint."
+                   print("[*] Hit the first breakpoint.")
                    return DBG_CONTINUE
                
         else:
-            print "[*] Hit user defined breakpoint."
+            print("[*] Hit user defined breakpoint.")
             # this is where we handle the breakpoints we set 
             # first put the original byte back
             self.write_process_memory(self.exception_address, self.breakpoints[self.exception_address])
@@ -261,17 +258,24 @@ class debugger():
             self.context.Eip -= 1
             
             kernel32.SetThreadContext(self.h_thread,byref(self.context))
-            
             continue_status = DBG_CONTINUE
-
 
         return continue_status
 
-    def func_resolve(self,dll,function):
-        
-        handle  = kernel32.GetModuleHandleA(dll)
+    def func_resolve(self, dll, function):
+        from ctypes import wintypes
+        kernel32.GetModuleHandleW.restype = wintypes.HMODULE
+        kernel32.GetModuleHandleW.argtypes = [wintypes.LPCWSTR]
+        handle = kernel32.GetModuleHandleW(dll)
+        print('handle = 0x%08x' % handle)
+
+        kernel32.GetProcAddress.restype = wintypes.LPVOID
+        kernel32.GetProcAddress.argtypes = [wintypes.HMODULE, wintypes.LPCSTR] # force 8 bit encoding 
         address = kernel32.GetProcAddress(handle, function)
+        print('address = 0x%08x' % address)
         
+        kernel32.CloseHandle.restype = wintypes.BOOL
+        kernel32.CloseHandle.argtypes = [wintypes.HMODULE]
         kernel32.CloseHandle(handle)
 
         return address
@@ -289,13 +293,13 @@ class debugger():
             return False
         
         # Check for available slots
-        if not self.hardware_breakpoints.has_key(0):
+        if 0 not in self.hardware_breakpoints:
             available = 0
-        elif not self.hardware_breakpoints.has_key(1):
+        elif 1 not in self.hardware_breakpoints:
             available = 1
-        elif not self.hardware_breakpoints.has_key(2):
+        elif 2 not in self.hardware_breakpoints:
             available = 2
-        elif not self.hardware_breakpoints.has_key(3):
+        elif 3 not in self.hardware_breakpoints:
             available = 3
         else:
             return False
@@ -332,19 +336,19 @@ class debugger():
         return True
     
     def exception_handler_single_step(self):
-        print "[*] Exception address: 0x%08x" % self.exception_address
+        print("[*] Exception address: 0x%08x" % self.exception_address)
         # Comment from PyDbg:
         # determine if this single step event occured in reaction to a hardware breakpoint and grab the hit breakpoint.
         # according to the Intel docs, we should be able to check for the BS flag in Dr6. but it appears that windows
         # isn't properly propogating that flag down to us.
-        if self.context.Dr6 & 0x1 and self.hardware_breakpoints.has_key(0):
+        if self.context.Dr6 & 0x1 and 0 in self.hardware_breakpoints:
             slot = 0
 
-        elif self.context.Dr6 & 0x2 and self.hardware_breakpoints.has_key(1):
+        elif self.context.Dr6 & 0x2 and 1 in self.hardware_breakpoints:
             slot = 0
-        elif self.context.Dr6 & 0x4 and self.hardware_breakpoints.has_key(2):
+        elif self.context.Dr6 & 0x4 and 2 in self.hardware_breakpoints:
             slot = 0
-        elif self.context.Dr6 & 0x8 and self.hardware_breakpoints.has_key(3):
+        elif self.context.Dr6 & 0x8 and 3 in self.hardware_breakpoints:
             slot = 0
         else:
             # This wasn't an INT1 generated by a hw breakpoint
@@ -354,7 +358,7 @@ class debugger():
         if self.bp_del_hw(slot):
             continue_status = DBG_CONTINUE
 
-        print "[*] Hardware breakpoint removed."
+        print("[*] Hardware breakpoint removed.")
         return continue_status
     
     def bp_del_hw(self,slot):

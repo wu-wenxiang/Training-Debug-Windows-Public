@@ -18,6 +18,7 @@ CREATE_NEW_CONSOLE    = 0x00000010
 PROCESS_ALL_ACCESS    = 0x001F0FFF
 INFINITE              = 0xFFFFFFFF
 DBG_CONTINUE          = 0x00010002
+DBG_EXCEPTION_NOT_HANDLED = 0x80010001
 
 
 # Debug event constants
@@ -180,8 +181,7 @@ class FLOATING_SAVE_AREA(Structure):
 # The CONTEXT structure which holds all of the 
 # register values after a GetThreadContext() call
 class CONTEXT(Structure):
-    _fields_ = [
-    
+    _fields_ = [ 
         ("ContextFlags", DWORD),
         ("Dr0", DWORD),
         ("Dr1", DWORD),

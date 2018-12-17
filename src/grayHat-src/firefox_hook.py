@@ -34,7 +34,7 @@ def ssl_sniff( dbg, args ):
             break
 
     if pattern in buffer:
-        print "Pre-Encrypted: %s" % buffer
+        print("Pre-Encrypted: %s" % buffer)
 
     return DBG_CONTINUE
 
@@ -48,7 +48,7 @@ for (pid, name) in dbg.enumerate_processes():
         hooks         = utils.hook_container()
 
         dbg.attach(pid)
-        print "[*] Attaching to firefox.exe with PID: %d" % pid
+        print("[*] Attaching to firefox.exe with PID: %d" % pid)
 
         # Resolve the function address
         hook_address  = dbg.func_resolve_debuggee("nspr4.dll","PR_Write")
@@ -57,16 +57,16 @@ for (pid, name) in dbg.enumerate_processes():
             # Add the hook to the container, we aren't interested
             # in using an exit callback so we set it to None
             hooks.add( dbg, hook_address, 2, ssl_sniff, None)
-            print "[*] nspr4.PR_Write hooked at: 0x%08x" % hook_address
+            print("[*] nspr4.PR_Write hooked at: 0x%08x" % hook_address)
             break
         else:
-            print "[*] Error: Couldn't resolve hook address."
+            print("[*] Error: Couldn't resolve hook address.")
             sys.exit(-1)
 
 
 if found_firefox:    
-    print "[*] Hooks set, continuing process."
+    print("[*] Hooks set, continuing process.")
     dbg.run()
 else:    
-    print "[*] Error: Couldn't find the firefox.exe process. Please fire up firefox first."
+    print("[*] Error: Couldn't find the firefox.exe process. Please fire up firefox first.")
     sys.exit(-1)
