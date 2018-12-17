@@ -8,14 +8,16 @@
 			- How to set a Breakpoint target writing memory?
 				- `ba w4 0xAAAAAA`
 			- How to viewing and edit Memory?
-				- `da` / `db` / `du`
-				- `eza`
+				- `da` / `db` / `du`: [document](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/d--da--db--dc--dd--dd--df--dp--dq--du--dw--dw--dyb--dyd--display-memor)
+				- `eza`: [document](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/e--ea--eb--ed--ed--ef--ep--eq--eu--ew--eza--ezu--enter-values-)
 			- How to use debugger extensions?
+				- [!heap](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/-heap)
 				- [pykd: dump heap strings](https://github.com/wu-wenxiang/Tool-Windbg-Pykd-Scripts/blob/master/scripts/memory-dump-heap-strings.py)
 		- Customize Application
-			- How to use !analyze in hang / crash scenarios?
-			- Why my source code could not display with !analyze -v?
-			- How to find error code of a win32 api that returns false???
+			- How to use `!analyze -v` in hang / crash scenarios?
+			- Why my source code could not display with `!analyze -v`?
+			- How to find error code of a win32 api that returns false?
+				- `!teb` / `!gle` / `!error`
 	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
 	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
 	- [Standard Debugging Techniques](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/standard-debugging-techniques)
