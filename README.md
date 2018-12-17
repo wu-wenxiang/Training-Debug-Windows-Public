@@ -51,7 +51,6 @@
 		- How to set a Conditional Data Breakpoint?
 		- How to write a Simple Debugger Command Program?
 		- How to build the SimpleLabExts Debugger Extension
-		- How to find error code of a win32 api that returns false
 		- How to write scripts by pykd, or javascript?
 	- About Sysinternal tools
 		- How to find which process locked the files?

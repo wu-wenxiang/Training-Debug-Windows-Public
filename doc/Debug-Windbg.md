@@ -1,6 +1,12 @@
 ## Windbg Usage
 - Windbg Usage
 	- [Getting Started With Windbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/getting-started-with-windbg)
+		- Steps
+			- Onlaunch vs Attach
+			- `.sympath`
+			- Procmon Callstack
+			- `lm`: check symbol load
+			- srcpath if private symbol didn't aim the correct src files
 		- Notepad
 			- How to examine the Process Information?
 			- How to set a Breakpoint at function entries?
@@ -8,6 +14,8 @@
 			- How to set a Breakpoint target writing memory?
 				- `ba w4 0xAAAAAA`
 			- How to viewing and edit Memory?
+				- [Viewing and Editing Memory in WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/memory-window)
+				- To open a Memory window, choose Memory from the View menu. (You can also press ALT+5 or click the Memory button)
 				- `da` / `db` / `du`: [document](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/d--da--db--dc--dd--dd--df--dp--dq--du--dw--dw--dyb--dyd--display-memor)
 				- `eza`: [document](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/e--ea--eb--ed--ed--ef--ep--eq--eu--ew--eza--ezu--enter-values-)
 			- How to use debugger extensions?
@@ -21,12 +29,10 @@
 	- [Windbg Commands](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/commands)
 	- [Debugging Using WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg)
 	- [Standard Debugging Techniques](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/standard-debugging-techniques)
-	- [Viewing and Editing Memory in WinDbg](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/memory-window)
 - Windbg Advanced
 	- How to set a Conditional Data Breakpoint?
 	- How to write a Simple Debugger Command Program?
 	- How to build the SimpleLabExts Debugger Extension
-	- How to find error code of a win32 api that returns false
 	- How to write scripts by pykd, or javascript?
 - What's more?
 	- About Mex

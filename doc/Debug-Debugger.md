@@ -67,14 +67,14 @@
 			- 缺点：必须以内存页为单位
 - Implement
 	- How to implement Onlaunch debugging?
-		- [CreateProcessA()](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa)，Demo: [my_test.py](https://github.com/wu-wenxiang/Training-Python/blob/master/Python-Common/debug/grayHat-src/my_test.py) ???
+		- [CreateProcessA()](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-createprocessa)，Demo: [my_test.py](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/blob/master/src/grayHat-src/my_test.py) 
 			- lpApplicationName：文件路径
 			- lpCommandLine：命令行参数
 			- dwCreationFlags：使生成的进程自动具备可调试特性
 			- lpStartupInfo：指定进程的启动方式
 			- lpProcessInformation：记录进程启动成功后的相关信息
 	- How to implement Attach debugging?
-		- [my_test.py](https://github.com/wu-wenxiang/Training-Python/blob/master/Python-Common/debug/grayHat-src/my_test.py) ???
+		- [my_test.py](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/blob/master/src/grayHat-src/my_test.py)
 		- [OpenProcess](https://docs.microsoft.com/en-us/windows/desktop/api/processthreadsapi/nf-processthreadsapi-openprocess)：获取指向目标进程的句柄，用于判断是否能顺利访问目标进程
 			- dwDesiredAccess：索要哪种类型的访问权限，一般`PROCESS_ALL_ACCESS`
 			- bInheritHandle：False
