@@ -46,7 +46,7 @@
 		- `dumpbin /exports xxx.dll`
 		- [Static call](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-01-StaticLoad)
 		- [Dynamic call](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-02-DynamicLoad): [GetProcAddress](https://docs.microsoft.com/en-us/windows/desktop/api/libloaderapi/nf-libloaderapi-getprocaddress)
-		- Python call: mydebgger
+		- Python call: [mydebgger]()
 		
 				from ctypes import *
 				msvcrt = cdll.msvcrt
