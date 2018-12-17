@@ -42,17 +42,17 @@
 			SYMCHK: FAILED files = 0
 			SYMCHK: PASSED + IGNORED files = 1  
 - Symbol Hacker
-	- Demo: [Export functions]()
+	- Demo: [Export functions](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/TestDLL)
 		- `dumpbin /exports xxx.dll`
-		- [Static call]()
-		- Dynamic call: [GetProcAddress](https://docs.microsoft.com/en-us/windows/desktop/api/libloaderapi/nf-libloaderapi-getprocaddress)
+		- [Static call](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-01-StaticLoad)
+		- [Dynamic call](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-02-DynamicLoad): [GetProcAddress](https://docs.microsoft.com/en-us/windows/desktop/api/libloaderapi/nf-libloaderapi-getprocaddress)
 		- Python call: mydebgger
 		
 				from ctypes import *
 				msvcrt = cdll.msvcrt
 				msg = b"Hello\n"
 				msvcrt.printf(b"aStr: %s", msg)
-	- Demo: Call internal functions by [SymFromName](https://docs.microsoft.com/en-us/windows/desktop/api/dbghelp/nf-dbghelp-symfromname)
+	- [Demo: Call internal functions](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-03-InternalFunction) by [SymFromName](https://docs.microsoft.com/en-us/windows/desktop/api/dbghelp/nf-dbghelp-symfromname)
 		- Real case: linkinfo
 		- Real case: scan
 - Others
