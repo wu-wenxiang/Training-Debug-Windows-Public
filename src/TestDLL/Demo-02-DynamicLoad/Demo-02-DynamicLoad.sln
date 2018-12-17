@@ -1,0 +1,31 @@
+﻿
+Microsoft Visual Studio Solution File, Format Version 12.00
+# Visual Studio 15
+VisualStudioVersion = 15.0.28307.102
+MinimumVisualStudioVersion = 10.0.40219.1
+Project("{8BC9CEB8-8B4A-11D0-8D11-00A0C91BC942}") = "Demo-02-DynamicLoad", "Demo-02-DynamicLoad\Demo-02-DynamicLoad.vcxproj", "{494BC636-7996-416B-BA75-D38C6A69541E}"
+EndProject
+Global
+	GlobalSection(SolutionConfigurationPlatforms) = preSolution
+		Debug|x64 = Debug|x64
+		Debug|x86 = Debug|x86
+		Release|x64 = Release|x64
+		Release|x86 = Release|x86
+	EndGlobalSection
+	GlobalSection(ProjectConfigurationPlatforms) = postSolution
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Debug|x64.ActiveCfg = Debug|x64
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Debug|x64.Build.0 = Debug|x64
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Debug|x86.ActiveCfg = Debug|Win32
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Debug|x86.Build.0 = Debug|Win32
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Release|x64.ActiveCfg = Release|x64
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Release|x64.Build.0 = Release|x64
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Release|x86.ActiveCfg = Release|Win32
+		{494BC636-7996-416B-BA75-D38C6A69541E}.Release|x86.Build.0 = Release|Win32
+	EndGlobalSection
+	GlobalSection(SolutionProperties) = preSolution
+		HideSolutionNode = FALSE
+	EndGlobalSection
+	GlobalSection(ExtensibilityGlobals) = postSolution
+		SolutionGuid = {1C478284-3EF9-46AC-9A4B-9B58E69AD615}
+	EndGlobalSection
+EndGlobal
