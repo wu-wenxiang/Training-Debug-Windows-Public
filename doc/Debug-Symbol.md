@@ -47,7 +47,7 @@
 		- [Static call](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-01-StaticLoad)
 		- [Dynamic call](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/tree/master/src/TestDLL/Demo-02-DynamicLoad): [GetProcAddress](https://docs.microsoft.com/en-us/windows/desktop/api/libloaderapi/nf-libloaderapi-getprocaddress)
 		- Python call: [mydebgger](https://github.com/wu-wenxiang/Training-Debug-Windows-Public/blob/master/src/grayHat-src/my_test.py)
-		
+
 				from ctypes import *
 				msvcrt = cdll.msvcrt
 				msg = b"Hello\n"
@@ -65,4 +65,5 @@
 			- Any Internet symbol servers, such as the Microsoft symbol server.
 		- Demo: Procmon
 	- What if without symbol
-		- COM/COM+/DCOM
+		- [OLE-COM Object Viewer](https://docs.microsoft.com/en-us/windows/desktop/com/ole-com-object-viewer), [Usage](https://docs.microsoft.com/en-us/previous-versions/d0kh9f4c(v=vs.140))
+		- [Metadata and Self-Describing Components](https://docs.microsoft.com/en-us/dotnet/standard/metadata-and-self-describing-components)
