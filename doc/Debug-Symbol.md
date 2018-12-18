@@ -1,6 +1,60 @@
 ## About Symbol
 - What & Why
 	- [Generate symbol files for a C++ project](https://docs.microsoft.com/en-us/visualstudio/debugger/how-to-set-debug-and-release-configurations?view=vs-2017)
+	- Relationship between assembly, symbol & source file
+	
+			>>> bStr = open('CrashMe.exe', 'rb').read()
+			>>> bStr = ''.join([chr(i) for i in bStr if i>0x10])
+			>>> bStr.find('CrashMe.pdb')
+			1392233
+			>>> bStr[1392100:1392300]
+			'C:\\local\\github-mine\\Training-Debug-Windows\\src\\CrashMe\\CrashMe\\Release\\CrashMe.pdb'
+			>>> re.findall('\w+\.cpp', bStr)
+			['appcore.cpp', 'auxdata.cpp', 'filecore.cpp', 'winfrm.cpp', 'winctrl2.cpp', 'viewcore.cpp', 'array_s.cpp', 'oledrop2.cpp', 'oleipfrm.cpp', 'olestrm.cpp']
+			
+			0:000> k
+			 # ChildEBP RetAddr  
+			00 007ef92c 7431a7a0 win32u!NtUserGetMessage+0xc
+			*** WARNING: Unable to verify checksum for C:\local\github-mine\Training-Debug-Windows\src\CrashMe\CrashMe\Release\CrashMe.exe
+			*** ERROR: Module load completed but symbols could not be loaded for C:\local\github-mine\Training-Debug-Windows\src\CrashMe\CrashMe\Release\CrashMe.exe
+			01 007ef968 00f96751 USER32!GetMessageW+0x30
+			WARNING: Stack unwind information not available. Following frames may be wrong.
+			02 007ef9b4 00f9548b CrashMe+0x6751
+			03 007ef9c8 00f955f3 CrashMe+0x548b
+			04 007efa20 010fca33 CrashMe+0x55f3
+			05 007efb34 010fc31f CrashMe+0x16ca33
+			06 007efb4c 010dd7d3 CrashMe+0x16c31f
+			07 007efb98 76e08484 CrashMe+0x14d7d3
+			08 007efbac 775c305a KERNEL32!BaseThreadInitThunk+0x24
+			09 007efbf4 775c302a ntdll!__RtlUserThreadStart+0x2f
+			0a 007efc04 00000000 ntdll!_RtlUserThreadStart+0x1b
+			
+			>>> aStr = open('CrashMe.pdb', 'rb').read()
+			>>> aStr = ''.join([chr(i) for i in aStr if i>0x10])
+			>>> re.findall('.{10}crashme.cpp', aStr)
+			['e\\crashme\\crashme.cpp', 'e\\crashme\\crashme.cpp']
+			
+			0:000> k
+			 # ChildEBP RetAddr  
+			00 001bf5e0 7431a7a0 win32u!NtUserGetMessage+0xc
+			*** WARNING: Unable to verify checksum for C:\local\github-mine\Training-Debug-Windows\src\CrashMe\CrashMe\Release\CrashMe.exe
+			02 001bf638 01066822 CrashMe!AfxInternalPumpMessage+0x18 [f:\dd\vctools\vc7libs\ship\atlmfc\src\mfc\thrdcore.cpp @ 153] 
+			03 001bf644 0106d769 CrashMe!AfxPumpMessage+0x1f [f:\dd\vctools\vc7libs\ship\atlmfc\src\mfc\thrdcore.cpp @ 190] 
+			04 001bf668 0106548b CrashMe!CWnd::RunModalLoop+0xc9 [f:\dd\vctools\vc7libs\ship\atlmfc\src\mfc\wincore.cpp @ 4661] 
+			05 001bf67c 010655f3 CrashMe!CWnd::CreateRunDlgIndirect+0x3d [f:\dd\vctools\vc7libs\ship\atlmfc\src\mfc\dlgcore.cpp @ 474] 
+			06 001bf6d4 011cca33 CrashMe!CDialog::DoModal+0x148 [f:\dd\vctools\vc7libs\ship\atlmfc\src\mfc\dlgcore.cpp @ 633] 
+			07 001bf7e8 011cc31f CrashMe!CCrashMeApp::InitInstance+0x83 [c:\local\github-mine\training-debug-windows\src\crashme\crashme\crashme\crashme.cpp @ 64] 
+			08 001bf800 011ad7d3 CrashMe!AfxWinMain+0x5f [f:\dd\vctools\vc7libs\ship\atlmfc\src\mfc\winmain.cpp @ 37] 
+			09 (Inline) -------- CrashMe!invoke_main+0x1a [f:\dd\vctools\crt\vcstartup\src\startup\exe_common.inl @ 118] 
+			0a 001bf84c 76e08484 CrashMe!__scrt_common_main_seh+0xf8 [f:\dd\vctools\crt\vcstartup\src\startup\exe_common.inl @ 283] 
+			0b 001bf860 775c305a KERNEL32!BaseThreadInitThunk+0x24
+			0c 001bf8a8 775c302a ntdll!__RtlUserThreadStart+0x2f
+			0d 001bf8b8 00000000 ntdll!_RtlUserThreadStart+0x1b
+			
+			>>> re.findall('CCrashMeDlg::[\w\d]+', aStr)
+			['CCrashMeDlg::OnBnClicked_ChkDebugBreakOnAction', ...]
+			>>> re.findall('\s*Line\s*\d+\s*', aStr)
+			['Line9', 'Line9', 'Line9', 'Line9', 'Line9', 'Line9', 'Line2', 'Line6']
 	- Demo: Dump call stack without & with symbol
 	- Doc: [Debugging with Symbols](https://docs.microsoft.com/en-us/windows/desktop/dxtecharts/debugging-with-symbols)
 		- What does the symbol path syntax mean?
