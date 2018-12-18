@@ -1,4 +1,4 @@
-## About Symbol
+## About Debugger
 - Rationales
 	- What's the differents between c call & standard call?
 		- cdll：参数列表从右向左入栈，调用者负责清栈
