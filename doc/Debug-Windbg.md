@@ -91,7 +91,10 @@
 		- `.load ntsdexts`
 		- `.hh`
 		- `!ntsdexts.help`
+		- [pykd](https://githomelab.ru/pykd/pykd)
+		- [wdbgark](https://github.com/swwwolf/wdbgark)
 	- How to write scripts by pykd, or javascript?
+		- [Javascript Demo](https://github.com/Microsoft/WinDbg-Samples)
 - What's more?
 	- About cdb
 		- `cd C:\Program Files (x86)\Windows Kits\10\Debuggers\x86`
