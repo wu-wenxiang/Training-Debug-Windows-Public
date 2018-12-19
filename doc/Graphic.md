@@ -1,17 +1,65 @@
-## 内容
-- Native C++ Desktop Rendering Introduction & Best Practice
+## Native C++ Desktop Rendering Introduction & Best Practice
+- Graphic
 	- Rendering Pipeline
 	- ![渲染管线.jpg](https://pic4.zhimg.com/v2-1e286dd517c717e3f1c48792275f7e87_r.jpg)
 	- Rasterization
 	- ![三角形的软件光栅化.png](http://hi.csdn.net/attachment/201103/8/8458191_1299585635RfNA.png)
+- Overview
+	- 功能+性能+易用性
+	- ![graphics01.png](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/images/graphics01.png)
+	- [GDI calls these DrvXxx functions to pass data to the drive](https://technet.microsoft.com/en-us/evalcenter/ff570139(v=vs.90))
 	- [Overview of the Windows Graphics Architecture](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/overview-of-the-windows-graphics-architecture)
-		- [GDI](https://msdn.microsoft.com/en-us/library/ms969913.aspx)
-		- [GDI+](https://docs.microsoft.com/en-us/windows/desktop/gdiplus/-gdiplus-gdi-start)
-		- [OpenGL](https://learnopengl.com/Getting-started/OpenGL)
-		- [Unity](https://link.zhihu.com/?target=http%3A//unity3d.com/learn/tutorials/modules) 
-	- [Comparing Direct2D and GDI Hardware Acceleration](https://docs.microsoft.com/en-us/windows/desktop/direct2d/comparing-direct2d-and-gdi)
-	- [Direct2D in action](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/your-first-direct2d-program)
-	- Howto: [Improving the performance of Direct2D apps](https://docs.microsoft.com/en-us/windows/desktop/direct2d/improving-direct2d-performance)
+- [GDI](https://msdn.microsoft.com/en-us/library/ms969913.aspx)
+	- Demo：[wicviewergdi](https://github.com/Microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/multimedia/wic/wicviewergdi)
+		- [Windows Imaging Component (WIC) provides a Component Object Model (COM) ](https://docs.microsoft.com/en-us/windows/desktop/wic/-wic-api)
+		- COINIT_APARTMENTTHREADED
+		- 无限循环，分发消息
+		- [一个进程可以创建多个STA（单线程公寓），每个STA中可以包含多个COM对象。只有创建STA的线程可以直接访问STA内部的COM对象，因此不用担心多线程问题](https://msdn.microsoft.com/en-us/library/ms809971.aspx)
+	- Demo: [comparing-direct2d-and-gdi](https://docs.microsoft.com/en-us/windows/desktop/direct2d/comparing-direct2d-and-gdi)
+		- ![direct2d-vs-gdi1.png](https://docs.microsoft.com/en-us/windows/desktop/direct2d/images/direct2d-vs-gdi1.png)
+		- GDI和GDI Driver在每个Logon Session中都存在一个，bug会导致蓝屏
+		- DirectX Driver在User Mode，更简单，Bug不会导致蓝屏
+		- ![direct2d-vs-gdi2.png](https://docs.microsoft.com/en-us/windows/desktop/direct2d/images/direct2d-vs-gdi2.png)
+		- GDI的部分功能获得了硬件加速，比如BitBlt，其它则没有
+		- GDI对特明度支持有限，即便有支持也是通过bitblt位块转换操作（位块转换操作比如将256色图转换成真彩）
+		- GDI+支持特明度，但通过CPU计算
+		- 而Direct2D支持全硬件加速的特明度计算。
+		- The Desktop Window Manager (DWM), 要求GDI渲染的Surface通过D3D渲染显示到屏幕。这在XP中做不到，因为XP的GDI和D3D的driver stack完全不兼容。Vista开始, GDI DDI display driver实现在Canonical Display Driver (CDD)中，它将GDI内容专程系统内存位图交给DWM。
+		- DWM Bug
+			- ![graphics05.png](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/images/graphics05.png)
+			- Win7 DWM turned on (physical machine with video driver installed and Aero Theme enabled)
+			- Since Windows 8, DWM can’t be turned off. Executing the enable DWM function will not do anything, DWM will always be active.
+			- ![graphics04.png](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/images/graphics04.png)
+			- 在Windows Vista之前，Windows程序将直接绘制到屏幕上
+			- 换句话说，程序将直接写入由视频卡显示的内存缓冲器
+			- 两个窗口都画到了同一个内存区域
+			- 当拖动最上面的窗口时，它下面的窗口必须重新绘制。如果重画太慢，它会导致先前图像中显示的伪影
+			- 桌面窗口管理器（DWM）从根本上改变了Windows的绘制方式。当启用DWM时，窗口不再直接绘制到显示缓冲器。
+			- 相反，每个窗口绘制到屏幕外的内存缓冲区，也称为屏幕外表面Surface。DWM然后将这些表面复合到屏幕上。
+		- [GdiInteropSample](https://github.com/Microsoft/Windows-classic-samples/tree/master/Samples/Win7Samples/multimedia/Direct2D/GdiInteropSample)
+		- ![gdicontentind2d.png](https://docs.microsoft.com/en-us/windows/desktop/direct2d/images/gdicontentind2d.png)
+- [GDI+](https://docs.microsoft.com/en-us/windows/desktop/gdiplus/-gdiplus-gdi-start)
+	- 支持.NET，代码更抽象得更好
+	- 增加了功能支持，比如特明度
+	- Demo：[DrawLine](https://docs.microsoft.com/en-us/windows/desktop/gdiplus/-gdiplus-drawing-a-line-use)
+	- Demo：[bitmaps](https://docs.microsoft.com/en-us/windows/desktop/gdiplus/-gdiplus-loading-and-displaying-bitmaps-use)
+- [OpenGL](https://learnopengl.com/Getting-started/OpenGL)
+	- [Get Start](https://learnopengl-cn.readthedocs.io/zh/latest/01%20Getting%20started/01%20OpenGL/)
+		- 一般认为OpenGL是一个API，包含了一系列可以操作图形、图像的函数。
+		- 然而，OpenGL本身并不是一个API，它仅仅是一个由Khronos组织制定并维护的规范(Specification)。
+		- OpenGL规范严格规定了每个函数该如何执行，以及它们的输出值。
+		- 实际的OpenGL库的开发者通常是显卡的生产商，具体实现各个不同。Apple/Linux
+		- 当产生一个bug时通常可以通过升级显卡驱动来解决
+		- 早期的OpenGL使用立即渲染模式（Immediate mode，也就是固定渲染管线），简单、低效、不灵活
+		- OpenGL3.2开始，规范文档开始废弃立即渲染模式，推出核心模式(Core-profile)
+		- 当使用OpenGL的核心模式时，OpenGL迫使我们使用现代的函数
+	- [OpenGL on Windows](https://docs.microsoft.com/en-us/windows/desktop/OpenGL/opengl-on-windows-nt--windows-2000--and-windows-95-98)
+- [Unity](https://link.zhihu.com/?target=http%3A//unity3d.com/learn/tutorials/modules) 
+	- unity是游戏引擎，directx是图形函数库，下面箭头表示调用关系。 
+	- 你的程序-->Unity3D-->DirectX-->图形设备（显卡）。 
+	- 当然，DirectX和OpenGL是等价的图形函数库，都是游戏引擎的下层调用接口，二者可替换。
+- [Direct2D in action](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/your-first-direct2d-program)
+- Howto: [Improving the performance of Direct2D apps](https://docs.microsoft.com/en-us/windows/desktop/direct2d/improving-direct2d-performance)
 - Performance Tunning
 	- [Debugging Tips for the Windows Display Driver Model](https://docs.microsoft.com/en-us/windows-hardware/drivers/display/debugging-tips-for-the-windows-vista-display-driver-model)
 	- Tools: [Sysinternals](https://docs.microsoft.com/en-us/sysinternals) (Procmon / ProcExp / Handle, etc)
