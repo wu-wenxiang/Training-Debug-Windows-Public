@@ -35,8 +35,8 @@
 	- ProcExp / Procmon
 - How to monitor file/registry/network/process/thread?
 	- Procmon
-		- >>> aFile = open(r'C:\Users\pear\Desktop\a.txt')
-		- >>> aFile.read()
+		- `aFile = open(r'C:\Users\pear\Desktop\a.txt')`
+		- `aFile.read()`
 	- Procmon Filter
 	- Symbol / CallStack
 - How to capture a full memory dump?
