@@ -4,6 +4,10 @@
 	- ![渲染管线.jpg](https://pic4.zhimg.com/v2-1e286dd517c717e3f1c48792275f7e87_r.jpg)
 	- Rasterization
 	- ![三角形的软件光栅化.png](http://hi.csdn.net/attachment/201103/8/8458191_1299585635RfNA.png)
+	- 透视变换（Perspective Transformation）
+	- ![透视变换.png](http://images2015.cnblogs.com/blog/893836/201603/893836-20160310181552272-466430984.png)
+	-  Anti-aliasing，反锯齿
+	-  Alpha-blending (transparency)，透明度混合
 - Overview
 	- 功能+性能+易用性
 	- ![graphics01.png](https://docs.microsoft.com/en-us/windows/desktop/learnwin32/images/graphics01.png)
