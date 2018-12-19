@@ -40,24 +40,40 @@
 - 04-throw
 	- `.dump /ma C:\test.dmp`
 	- `kP`
-	- `dd` <Exception Object>
+	- `dd <pExceptionObject>`
 - 05-stackoverflow
 	- [`windbg -I`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/windbg-command-line-options)
 	- [enabling-postmortem-debugging](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/enabling-postmortem-debugging)
 	- [How to disable or enable Dr. Watson for Windows](https://support.microsoft.com/en-us/help/188296/how-to-disable-or-enable-dr-watson-for-windows)
 	- [`kd`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/k--kb--kc--kd--kp--kp--kv--display-stack-backtrace-)
 	- `uf <Address>`
+	- `.exr -1`, `.exr`, `.cxr`, `.ecxr`
+	- `.lastevent`
 - 06-Division-By-NULL
+	- `xor  ecx,ecx`
+	- `!analyze -v`
 - 07-StackOverflow-with-recursion
+	- `kd`
+	- `!analyze -v`
 - 08-Nested-Exceptions
+	- `.exr -1`
+	- `dv`
 - 09-Access-Test-Variable
-	- Locals Window 
+	- Locals Window
+	- `this` -> `eax`
 - 10-check-for-debugger
+	- Modify memory
 - 11-Enter-Critical-Section
+	- `!locks -v`
 - 12-test-Calling-Conventions
-- 13-Invalid-Handles
+	- `t`
+- 13-Invalid-Handles 
+	- `!handle 0`
 - 14-set-last-error
+	- `!gle`
 - 15-HeapAlloc
+	- `!heap`
+	- `!address`
 - 16-HeapDealloc
 
 ## Demo
