@@ -1,7 +1,31 @@
 ## About Scenarios
 - About Crash
 	- How to debug Access Violations?
+		
+			from ctypes import *
+			msvcrt = cdll.msvcrt
+			msg = b"Hello\n"
+			msvcrt.printf(b"aStr: %s", msg)
+			input('Press any key to raise AV exception.')
+			msvcrt.printf(45, msg)
+			
+			# !address <xxxx>
+			
+			#include "pch.h"
+			#include <iostream>
+			
+			int main()
+			{
+			    std::cout << "Hello World!\n"; 
+				char *gpszTestString = new char[15];
+				strcpy_s(gpszTestString, 15, "Hello World!!\n");
+				delete[] gpszTestString;
+				printf("%s", gpszTestString);
+				system("pause");
+				return 0;
+			}
 	- How to debug Heap Corruption?
+		- `*cp++ = 'a'`
 	- How to debug Stack Corruption?
 - About Hang
 	- Common hang scenarios
@@ -10,7 +34,6 @@
 		- Wait for DB
 	- How to debug a Spinning Thread?
 - About Leak
-	- GFlags
 	- How to debug a Native Memory Leak?
 	- Finding COM Leaks Using Extensions
 	- VMMap
@@ -18,6 +41,7 @@
 	- LeakTrack extension
 - About HighCPU
 	- Live Debug with HighCPU
+		- Demo: Badguy
 	- Dump Analysis with HighCPU
 	- Common HighCPU scenarios
 		- Regex
