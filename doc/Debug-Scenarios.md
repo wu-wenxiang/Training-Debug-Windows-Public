@@ -55,6 +55,10 @@
 		- Wait for Web Services
 		- Wait for DB
 	- How to debug a Spinning Thread?
+	- Steps
+		- Confirm we got the correct 'Hang' dump
+		- Check call stack to got the 'Bottle-Neck' resource
+		- Dump heap to see the details
 - About Leak
 	- How to debug a Native Memory Leak?
 	- Finding COM Leaks Using Extensions
