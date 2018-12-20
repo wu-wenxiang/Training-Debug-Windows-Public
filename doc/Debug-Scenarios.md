@@ -74,6 +74,11 @@
 		- Parallel race
 		- Blank loop
 		- GC
+	- Steps
+		- ProcExp / ProcMon
+		- Xperf
+		- `Procdump -ma -s 5 -n 3 <pid>`
+		- Windbg: `!mex.runaway2 -a`, `vertarget`, `k`
 
 ## [CrashMe Project](http://windbg.info/apps/46-crashme.html)
 - 01-breakpoint
