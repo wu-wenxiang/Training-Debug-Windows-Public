@@ -1,6 +1,19 @@
 ## About Scenarios
 - About Crash
 	- How to debug Access Violations?
+		- Load dump
+		- Check error from the front lines, see AV exception
+		- Check thread, switch to it: `!mex.grep 1F69 ~`, `~146s`
+		- [`.ecxr`](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/-ecxr--display-exception-context-record-)
+		- `kP` see Exception callstack
+		- `.cxr` switch to current callstack
+		- `kP` see Current callstack
+		- `!teb` / `!gle` => 'File not found'
+		- Next Step:
+			- 1. Procmon to monitor which file
+			- 2. Check code which found in current/exception callstack
+			- 3. Dump heap string, maybe also could find string name
+	- Demo
 		
 			from ctypes import *
 			msvcrt = cdll.msvcrt
