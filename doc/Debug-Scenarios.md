@@ -27,6 +27,13 @@
 	- How to debug Heap Corruption?
 		- `*cp++ = 'a'`
 	- How to debug Stack Corruption?
+		- Capture a correct dump, use procdump/DebugDiag if WER not works
+		- Open the crash dump with windbg, check exception at the front lines
+		- If StackOverflow
+			- `kd`: show stack in raw styles
+			- `k`: callstack
+		- Find which functions raise the stack overflow, then uf it
+		- Check assembly code or source code 
 - About Hang
 	- Common hang scenarios
 		- Wait for Lock
