@@ -13,15 +13,17 @@
 			- 1. Procmon to monitor which file
 			- 2. Check code which found in current/exception callstack
 			- 3. Dump heap string, maybe also could find string name
-	- Demo
+	- Demo-1
 		
 			from ctypes import *
 			msvcrt = cdll.msvcrt
 			msg = b"Hello\n"
+			input('Please attach..., "bu msvcrt.printf", then "kb"')
 			msvcrt.printf(b"aStr: %s", msg)
-			input('Press any key to raise AV exception.')
+			input('Press any key to raise AV exception, run "kb" to check args')
 			msvcrt.printf(45, msg)
-			
+	- Demo-2
+	
 			# !address <xxxx>
 			
 			#include "pch.h"
@@ -29,7 +31,7 @@
 			
 			int main()
 			{
-			    std::cout << "Hello World!\n"; 
+				std::cout << "Hello World!\n"; 
 				char *gpszTestString = new char[15];
 				strcpy_s(gpszTestString, 15, "Hello World!!\n");
 				delete[] gpszTestString;
