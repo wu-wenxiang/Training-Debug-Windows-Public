@@ -9,7 +9,6 @@
 		
 		`handle.exe | findstr /i /R a.txt`
 - How to release the file from the process?
-
 		
 		# 找ProcExp中找到这个文件，然后释放它，就可以删除了。
 		

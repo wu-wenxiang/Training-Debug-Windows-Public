@@ -118,10 +118,6 @@
 				Server started.  Client can connect with any of these command lines
 				0: <debugger> -remote tcp:Port=8081,Server=wenwaz2016
 				wenwaz2016\pear (tcp 127.0.0.1:63141) connected at Wed Dec 19 06:23:07 2018
-	- About Mex
-		- Demo: Mex Usage
-	- About Windbg Preview
-		- Time Travel Debugging Overview
 	- About X64 Debug
 		- Parameter Passing and Stack
 		- Home Space and Optimized Code 
@@ -132,6 +128,7 @@
 		- `!mex.runaway2`
 		- `!mex.t`
 		- `!mex.us -l`
+		- `!mex.grep`
 	- [Debugging Using Windbg Preview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/debugging-using-windbg-preview)
 	- [Time Travel Debugging Overview](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-overview)
 		- [Time Travel Debugging - Record a trace](https://docs.microsoft.com/en-us/windows-hardware/drivers/debugger/time-travel-debugging-record)
