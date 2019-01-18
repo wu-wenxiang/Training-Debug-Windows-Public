@@ -1,4 +1,21 @@
 ## About Debugger
+- Questions
+	- 用户态调试时，Debugger能做些什么？
+		- 以启动模式**Open**，或者**Attach**住进程：运行/暂停执行
+		- 捕捉调试事件：单步执行/设置断点/捕获异常事件
+		- 查看和修改寄存器、内存数据
+	- 有哪些典型的调试事件？
+		- 断点触发
+		- 非法内存操作（Access Violation / Segment Fault）
+		- 由被调试程序抛出的异常
+		- 其它：进程/线程创建和消亡，动态链接库的运行时导入
+	- 可以设置几种断点？
+		- 软件断点
+		- 硬件断点
+		- 内存断点
+	- Debug为什么难？因为缺失了什么信息？
+		- 符号表
+		- 源码
 - Rationales
 	- What's the differents between c call & standard call?
 		- cdll：参数列表从右向左入栈，调用者负责清栈
